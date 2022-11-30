@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SentimentComponent } from './stock-tracker/components/sentiment/sentiment.component';
 import { DefaultPageComponent } from './stock-tracker/components/default-page/default-page.component';
 import { AppRoutingModule } from './app-routing.module';
+import { SingleSentimentComponent } from './stock-tracker/components/single-sentiment/single-sentiment.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AppRoutingModule } from './app-routing.module';
     StockListComponent,
     SingleStockComponent,
     SentimentComponent,
-    DefaultPageComponent
+    DefaultPageComponent,
+    SingleSentimentComponent
   ],
   imports: [
     BrowserModule,

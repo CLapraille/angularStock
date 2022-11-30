@@ -1,0 +1,39 @@
+.single-stock-card {
+    box-sizing: border-box;
+    width: 50%;
+    margin: 20px auto;
+    padding: 10px 30px;
+    border-style: none none none solid;
+    border-color: steelblue;
+    background-color: rgb(250, 250, 250);
+    
+    .card-title{
+        color: steelblue;
+        width: 100%;
+    }
+
+    button{
+        margin: 10px;     
+        padding: 5px;
+        font-weight: bold;
+    }
+
+    .marketMove{
+        float: right;
+        height: 50px;
+        width: 75px;
+        font-size: 50px;
+    }
+    .red-icon {
+        color: red;
+    }
+    .green-icon {
+        color: green;
+    }
+}
+
+.sentimentContent{
+    display: flex;
+}
+
+

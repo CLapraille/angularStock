@@ -1,0 +1,10 @@
+<div class="sentiment-box">
+    <div *ngIf="sentiment" >
+        <p>{{ sentiment?.month }} {{ sentiment?.year }}</p>
+        <p>Change: {{ sentiment?.change }} </p>
+        <p>MSPR{{ sentiment?.mspr}} </p>
+    </div>
+    <div *ngIf="sentiment == null" >
+        <p>No dta available</p>
+    </div>
+</div>
