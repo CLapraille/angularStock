@@ -1,1 +1,20 @@
-<p>new-stock works!</p>
+<form [formGroup]="stockForm">
+    <div class="stock-card">
+        <p>Enter the symbol of a stock to track (i.e. AAPL, TSLA, GOOGL)</p>
+
+        <input type="text" id="stockInput" formControlName="stockAcronym" >
+       
+        <button type="submit" [disabled]="stockForm.invalid" id="trackBtn" (click)="onTrackButtonClick()" >Track Stock</button>
+    
+        <div class="alert" *ngIf="stockAcronym?.invalid && (stockAcronym?.dirty || stockAcronym?.touched)" >
+
+            <div *ngIf="stockAcronym?.errors?.['required']">
+                A value should be provided.
+            </div>
+            <div *ngIf="stockAcronym?.errors?.['minlength'] || stockAcronym?.errors?.['maxlength']">
+                Value lenght must be between 1 and 5 characters long
+            </div>
+        </div>
+    </div>
+</form>
+
