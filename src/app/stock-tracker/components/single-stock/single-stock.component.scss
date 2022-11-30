@@ -1,39 +1,65 @@
 .single-stock-card {
     box-sizing: border-box;
-    width: 50%;
+    width: 35%;
     margin: 20px auto;
     padding: 10px 30px;
     border-style: none none none solid;
     border-color: steelblue;
     background-color: rgb(250, 250, 250);
 
-    h2{
+    h3{
      color: steelblue;
-     width: 100%;
     }
 
     a.closable{
-        float: right;
-        width: 0px;
-        height: 20px;
+        width: 25px;
+        height: 23px;
+        align-items: center;
         text-align: center;
         text-decoration: none;
-        color: rgb(53, 53, 53);        
-        font-size: 20px;
-        font-weight: bold;
+        color: white;        
+        font-size: 15px;        
+        float: right;
+        background-color: steelblue;
+        padding-top: 5px;
+
+        &:hover{
+            background-color: crimson;
+        }
+        
+    }
+    .closingTab{
+        overflow: hidden;
+        margin-left: 180px;
+        border-radius: 15px;
+        
     }
 
     button{
         margin: 10px;     
-        padding: 5px;
+        padding: 10px;
         font-weight: bold;
+        border-style: none;
+        background-color: lightsteelblue;
+        color: white;
+        border-radius: 5px;
+        &:hover{
+            cursor: pointer;
+            background-color: steelblue;
+        }
+    }
+
+    .testingStyle{
+        display: flex;
+        align-items: center;
     }
 
     .marketMove{
-        float: right;
-        height: 50px;
-        width: 75px;
-        font-size: 50px;
+        width: 40px;
+        height: 40px;
+        font-size: 40px;
+        font-weight: bold;
+        margin-right: 10px;
     }
     .red-icon {
         color: red;
@@ -44,6 +70,9 @@
   }
 
 table{
-    margin: 10px;
-    padding: 10px;
+
+    td{
+        padding: 10px;
+        font-size: 18px;
+    }
 }

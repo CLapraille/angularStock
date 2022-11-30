@@ -1,13 +1,14 @@
 
 .stock-card {
     box-sizing: border-box;
-    width: 55%;
+    width: 70%;
     margin: 20px auto;
     padding: 10px 30px;
     box-shadow: lightgray 4px 4px 10px;
     background-color: steelblue;
     color: white;
     border-radius: 5px;
+    text-align: center;
   }
   
   .stock-card {
@@ -17,21 +18,22 @@
     h2 {
       margin-bottom: 0;
     }
-    p {
-      font-weight: 300;
-      font-size: 20px;
-    }
+
     input {
         width: 20%;
+        height: 30px;
         margin: 20px auto;
+        font-size: 20px;
+        text-align: center;
     }
 
     button{
-        margin: 0px 0px 0px 30px;     
-        padding: 5px;
+        margin: 30px 0px 0px 30px;     
+        padding: 10px;
         font-weight: bold;
         border-radius: 10px;
         border-style: none;
+        font-size: 20px;
     }
     button:hover:not([disabled]){
         background-color: lightsteelblue;

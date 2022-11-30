@@ -1,12 +1,16 @@
 
     <div class="single-stock-card">
-        <a class="closable" href="#" (click)="onUnsubscribeStock(managedStock.symbol)" id="remove{{ managedStock.symbol }}" >X</a>
-                
-        <mat-icon class="marketMove" [ngClass]="managedStock.stockQuote.dp > 0 ? 'green-icon' : 'red-icon'">
-            {{ managedStock.stockQuote.dp > 0 ? 'arrow_upward' : 'arrow_downward' }}
-        </mat-icon>         
+        <div class="testingStyle">
+            <mat-icon class="marketMove" [ngClass]="managedStock.stockQuote.dp > 0 ? 'green-icon' : 'red-icon'">
+                {{ managedStock.stockQuote.dp > 0 ? 'arrow_upward' : 'arrow_downward' }}
+            </mat-icon>         
+            
+            <h3> {{ managedStock.description }} ( {{ managedStock.symbol }} )</h3>           
+            <div class="closingTab">
+                <a class="closable" href="#" (click)="onUnsubscribeStock(managedStock.symbol)" id="remove{{ managedStock.symbol }}" >X</a>
+            </div>
+        </div>
         
-        <h2> {{ managedStock.description }} ( {{ managedStock.symbol }} )</h2>        
         <div *ngIf="managedStock.stockQuote">
             <table>
                 <tr>
