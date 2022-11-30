@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ManagedStock } from 'src/app/models/managed-stock.model';
 
 @Component({
@@ -8,7 +9,7 @@ import { ManagedStock } from 'src/app/models/managed-stock.model';
 })
 export class SingleStockComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: Router) { }
 
   @Input() managedStock!: ManagedStock;
 
@@ -20,7 +21,7 @@ export class SingleStockComponent implements OnInit {
   }
   
   onGotoSocialSentiment(event: Event){
-    console.log('goto social sentiment with id ' + (event.target as Element).id);
+    this.route.navigateByUrl(`sentiment/${this.managedStock.symbol}`);
   }
 
 }
