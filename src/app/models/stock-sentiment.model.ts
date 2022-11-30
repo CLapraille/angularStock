@@ -1,9 +1,9 @@
-// export class StockSentiment {
-//     data!: StockSentimentInfo[]
-//     symbol!: string
-// }
+export class StockSentiment {
+    data!: StockSentimentInfo[]
+    symbol!: string
+}
 
-export class StockSentiment{
+export class StockSentimentInfo{
     symbol!: string
     year!: number
     month!: number

@@ -1,5 +1,24 @@
 .sentiment-box{
-    border: solid 1px black;
-    margin-right: auto;
-    width: 100%;
+    
+    margin: 20px;    
+
+    .marketMove{
+        height: 30px;
+        font-size: 30px;
+        font-weight: bold;        
+    }
+
+    .red-icon {
+        color: red;
+    }
+    .green-icon {
+        color: green;
+    }
+}
+
+.header-title{
+    font-weight: bold;
+    text-align: center;
+    background-color: steelblue;
+    color: white;
 }

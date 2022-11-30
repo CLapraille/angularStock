@@ -42,7 +42,7 @@ export class FinnhubQuoteService {
     return this.http.get<StockQuote>(tmpUrl);
   }
 
-  getSentimentForStock(stockAcronym: string) : Observable<StockSentiment[]>{
+  getSentimentForStock(stockAcronym: string) : Observable<StockSentiment>{
     var today = new Date();
 
     var previous3Month = new Date();
@@ -56,7 +56,7 @@ export class FinnhubQuoteService {
 
     console.log(tmpUrl);
 
-    return this.http.get<StockSentiment[]>(tmpUrl);
+    return this.http.get<StockSentiment>(tmpUrl);
   }
 
   getDateConvertedToString(givenDate: Date) : string{

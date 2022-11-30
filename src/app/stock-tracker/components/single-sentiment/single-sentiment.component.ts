@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { StockSentiment } from 'src/app/models/stock-sentiment.model';
+import { StockSentimentInfo } from 'src/app/models/stock-sentiment.model';
 
 @Component({
   selector: 'app-single-sentiment',
@@ -8,14 +8,21 @@ import { StockSentiment } from 'src/app/models/stock-sentiment.model';
 })
 export class SingleSentimentComponent implements OnInit {
 
-  @Input() sentiment!: StockSentiment | null;
+  @Input() sentiment!: StockSentimentInfo;
 
   currentMonth!: string;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.currentMonth = this.getMonthName(this.sentiment.month);
+  }
 
+  getMonthName(monthNumber: number) {
+    const date = new Date();
+    date.setMonth(monthNumber - 1);
+  
+    return date.toLocaleString('en-US', { month: 'long' });
   }
 
 }

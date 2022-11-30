@@ -2,11 +2,10 @@
  <div class="single-stock-card">              
     <h2 class="card-title">{{ stockName }} ( {{ providedSymbol }} )</h2>
     <div class="sentimentContent">
-        <!-- <app-single-sentiment *ngFor="let sentiment of stockSentiments" [sentiment]="sentiment"></app-single-sentiment> -->
-        <app-single-sentiment [sentiment]="stockSentiments == null ? null : stockSentiments[0]"></app-single-sentiment>
-        <app-single-sentiment [sentiment]="stockSentiments == null ? null : stockSentiments[1]"></app-single-sentiment>
-        <app-single-sentiment [sentiment]="stockSentiments == null ? null : stockSentiments[2]"></app-single-sentiment>
+         <app-single-sentiment *ngFor="let sentiment of stockSentiments" [sentiment]="sentiment"></app-single-sentiment>
     </div>
+    
+    <button type="submit" (click)="onBackward()" id="backBtn">< Back to list of stocks</button>
 </div>
-<button type="submit" (click)="onBackward()" id="backBtn">< Back to list of stocks</button>
+
 

@@ -1,8 +1,17 @@
 <div class="sentiment-box">
     <div *ngIf="sentiment" >
-        <p>{{ sentiment?.month }} {{ sentiment?.year }}</p>
-        <p>Change: {{ sentiment?.change }} </p>
-        <p>MSPR{{ sentiment?.mspr}} </p>
+        
+            <div class="title-box">
+                <div class="header-title">
+                    {{ currentMonth }} {{ sentiment.year }}
+                </div>
+                <mat-icon class="marketMove" [ngClass]="sentiment.change > 0 ? 'green-icon' : 'red-icon'">
+                    {{ sentiment.change > 0 ? 'arrow_upward' : 'arrow_downward' }}
+                </mat-icon> 
+            </div> 
+
+        <p>Change: {{ sentiment.change }} </p>
+        <p>MSPR{{ sentiment.mspr}} </p>
     </div>
     <div *ngIf="sentiment == null" >
         <p>No dta available</p>
