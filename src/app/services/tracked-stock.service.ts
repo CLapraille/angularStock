@@ -25,7 +25,7 @@ export class TrackedStockService {
     this.trackedStock.forEach((item, index) => {
       if(item.symbol === symbol) this.trackedStock.splice(index, 1);
     });
-    
+    console.log(symbol);
     return this.refreshLocalStorage();    
   }
 
