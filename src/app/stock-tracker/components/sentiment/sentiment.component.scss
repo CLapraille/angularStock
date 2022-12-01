@@ -1,6 +1,6 @@
 .single-stock-card {
     box-sizing: border-box;
-    width: 50%;
+    width: auto;
     margin: 20px auto;
     padding: 10px 30px;
     border-style: none none none solid;
@@ -12,12 +12,7 @@
         width: 100%;
     }
 
-    button{
-        margin-top: 30px;     
-        padding: 5px;
-        font-weight: bold;
-        align-content: center;
-    }
+    
 
     .marketMove{
         float: right;
@@ -35,6 +30,18 @@
 
 .sentimentContent{
     display: flex;
-    align-items: center;
+    width: 100%;    
+}
+
+.card-content{
+    align-content: center;
     
+}
+
+button{   
+    padding: 5px;
+    margin: 10px;
+
+    font-weight: bold;
+    align-self: center;
 }

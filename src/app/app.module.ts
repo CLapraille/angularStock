@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { NewStockComponent } from './stock-tracker/components/new-stock/new-stock.component';
 import { StockListComponent } from './stock-tracker/components/stock-list/stock-list.component';
 import { RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SingleStockComponent } from './stock-tracker/components/single-stock/single-stock.component';
 import {MatIconModule} from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -13,6 +13,8 @@ import { SentimentComponent } from './stock-tracker/components/sentiment/sentime
 import { DefaultPageComponent } from './stock-tracker/components/default-page/default-page.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SingleSentimentComponent } from './stock-tracker/components/single-sentiment/single-sentiment.component';
+import { SpinnerComponent } from './shared/spinner/spinner.component';
+import { LoadingInterceptor } from './interceptors/loading.interceptor';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { SingleSentimentComponent } from './stock-tracker/components/single-sent
     SingleStockComponent,
     SentimentComponent,
     DefaultPageComponent,
-    SingleSentimentComponent
+    SingleSentimentComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,10 @@ import { SingleSentimentComponent } from './stock-tracker/components/single-sent
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    {
+    provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

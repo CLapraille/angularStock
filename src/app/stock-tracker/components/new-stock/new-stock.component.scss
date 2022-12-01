@@ -1,7 +1,7 @@
 
 .stock-card {
     box-sizing: border-box;
-    width: 70%;
+    width: 80%;
     margin: 20px auto;
     padding: 10px 30px;
     box-shadow: lightgray 4px 4px 10px;
@@ -39,7 +39,19 @@
         background-color: lightsteelblue;
         cursor: pointer;
     }
+
+    .smallButton{
+      font-size: 10px;
+      overflow: hidden;
+      border-radius: 0px;
+      float: right;
+    }
 }
+
+.forceUppercase{
+  text-transform: uppercase;
+}
+
 
 .alert{
     padding: 2px;

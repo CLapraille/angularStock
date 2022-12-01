@@ -1,29 +1,32 @@
 
-    <div class="single-stock-card">
-        <div class="closingTab">
-            <a class="closable" href="#" (click)="onUnsubscribeStock(managedStock.symbol)" id="remove{{ managedStock.symbol }}" >X</a>
-        
-            <div class="testingStyle">
-                <mat-icon class="marketMove" [ngClass]="managedStock.stockQuote.dp > 0 ? 'green-icon' : 'red-icon'">
-                    {{ managedStock.stockQuote.dp > 0 ? 'arrow_upward' : 'arrow_downward' }}
-                </mat-icon>         
-                
-                <h2> {{ managedStock.description }} ( {{ managedStock.symbol }} )</h2> 
-            </div>
-        </div>
-
-        <div *ngIf="managedStock.stockQuote">
-            <table>
-                <tr>
-                    <td><b>Change today :</b> {{ managedStock.stockQuote.dp/100 | percent:'.2' }}</td>
-                    <td><b>Current Price :</b> {{ managedStock.stockQuote.c | currency }}</td>                    
-                </tr>
+<div class="single-stock-card">   
+    <div class="closingTab">
+        <a class="closable" href="#" (click)="onUnsubscribeStock(managedStock.symbol)" id="remove{{ managedStock.symbol }}" >X</a>
+    
+        <div class="headerStyle">
+            <mat-icon *ngIf="managedStock.stockQuote" class="marketMove" [ngClass]="managedStock.stockQuote.dp > 0 ? 'green-icon' : 'red-icon'">
+                {{ managedStock.stockQuote.dp > 0 ? 'arrow_upward' : 'arrow_downward' }}
+            </mat-icon>         
             
-                <tr>
-                    <td><b>Opening Price :</b> {{ managedStock.stockQuote.o | currency }}</td>
-                    <td><b>High Price :</b> {{ managedStock.stockQuote.h | currency }}</td>
-                </tr>
-            </table>
+            <h2> {{ managedStock.description }} ( {{ managedStock.symbol }} )</h2> 
         </div>
-        <button (click)="onGotoSocialSentiment($event)" id="sentiment{{ managedStock.symbol }}">Go to social sentiment details ></button>
     </div>
+
+    <div *ngIf="managedStock.stockQuote">
+        <table>
+            <tr>
+                <td><b>Change today :</b> {{ managedStock.stockQuote.dp/100 | percent:'.2' }}</td>
+                <td><b>Current Price :</b> {{ managedStock.stockQuote.c | currency }}</td>                    
+            </tr>
+        
+            <tr>
+                <td><b>Opening Price :</b> {{ managedStock.stockQuote.o | currency }}</td>
+                <td><b>High Price :</b> {{ managedStock.stockQuote.h | currency }}</td>
+            </tr>
+        </table>
+    </div>
+    <div *ngIf="!managedStock.stockQuote">
+        <p style="text-align: center; color: crimson;">No data found from Quote service</p>
+    </div>
+    <button (click)="onGotoSocialSentiment($event)" id="sentiment{{ managedStock.symbol }}">Go to social sentiment details ></button>
+</div>

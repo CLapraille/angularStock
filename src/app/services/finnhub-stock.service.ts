@@ -18,10 +18,17 @@ export class FinnhubQuoteService {
   finnhubToken: string = '&token=bu4f8kn48v6uehqi3cqg';
 
 
+  getStockDescription(stockAcronym: string) : Observable<string>{
+    var tmpUrl: string = `${this.finnhubUrl}/search?q=${stockAcronym}${this.finnhubToken}`;    
+    
+    return this.http.get<StockLookup>(tmpUrl).pipe(
+      map(stock => stock.result[0]?.description)
+    );
+  }
+
   getManagedStockForStock(stockAcronym: string) : Observable<ManagedStock> {
       var tmpUrl: string = `${this.finnhubUrl}/search?q=${stockAcronym}${this.finnhubToken}`;    
-      console.log('built URL : ' + tmpUrl);
-  
+      
       var quote: StockQuote;
       this.getQuoteForStock(stockAcronym).subscribe(r => quote = r);
 
@@ -37,12 +44,11 @@ export class FinnhubQuoteService {
 
   getQuoteForStock(stockAcronym: string) : Observable<StockQuote>{
     var tmpUrl: string = `${this.finnhubUrl}/quote?symbol=${stockAcronym}${this.finnhubToken}`;
-    console.log('built URL : ' + tmpUrl);
-
+    
     return this.http.get<StockQuote>(tmpUrl);
   }
 
-  getSentimentForStock(stockAcronym: string) : Observable<StockSentiment>{
+  getSentimentLast3MonthsForStock(stockAcronym: string) : Observable<StockSentiment>{
     var today = new Date();
 
     var previous3Month = new Date();
@@ -54,10 +60,23 @@ export class FinnhubQuoteService {
     var extraUrlPart: string = `&from=${today3Month}&to=${todayString}`;
     var tmpUrl: string = `${this.finnhubUrl}/stock/insider-sentiment?symbol=${stockAcronym}${extraUrlPart}${this.finnhubToken}`;
 
-    console.log(tmpUrl);
-
     return this.http.get<StockSentiment>(tmpUrl);
   }
+
+  // getSentimentForMonth(stockAcronym: string, dateRef: Date) : Observable<StockSentiment>{
+  //   var fromDate = new Date(dateRef.getFullYear(), dateRef.getMonth(), 1);
+  //   var toDate = new Date(dateRef.getFullYear(), dateRef.getMonth(), 28);
+    
+  //   var fromDateStr: string = this.getDateConvertedToString(fromDate);
+  //   var toDateStr: string = this.getDateConvertedToString(toDate);
+    
+  //   var extraUrlPart: string = `&from=${fromDateStr}&to=${toDateStr}`;
+  //   var tmpUrl: string = `${this.finnhubUrl}/stock/insider-sentiment?symbol=${stockAcronym}${extraUrlPart}${this.finnhubToken}`;
+
+  //   console.log(tmpUrl);
+
+  //   return this.http.get<StockSentiment>(tmpUrl);
+  // }
 
   getDateConvertedToString(givenDate: Date) : string{
     const yyyy = givenDate.getFullYear();

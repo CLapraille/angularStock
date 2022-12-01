@@ -3,10 +3,11 @@
         <h2>Enter the symbol of a stock to track (i.e. AAPL, TSLA, GOOGL)</h2>
 
         <div>
-            <input type="text" id="stockInput" formControlName="stockAcronym" >
+            <input type="text" id="stockInput" formControlName="stockAcronym" class="forceUppercase">
 
             <button type="submit" [disabled]="stockForm.invalid" id="trackBtn" (click)="onTrackButtonClick()" >Track Stock</button>
-        </div>
+        </div>        
+        <button class="smallButton" (click)="onClearLocalCache()">Clear Local Storage</button>
 
         <div class="alert" *ngIf="stockAcronym?.invalid && (stockAcronym?.dirty || stockAcronym?.touched)" >
 

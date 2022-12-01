@@ -1,11 +1,11 @@
 
- <div class="single-stock-card">              
-    <h2 class="card-title">{{ stockName }} ( {{ providedSymbol }} )</h2>
-    <div class="sentimentContent">
-         <app-single-sentiment *ngFor="let sentiment of stockSentiments" [sentiment]="sentiment"></app-single-sentiment>
-    </div>
-    
-    <button type="submit" (click)="onBackward()" id="backBtn">< Back to list of stocks</button>
+ <div class="card-content">
+     <div class="single-stock-card">              
+     <h2 class="card-title">{{ stockName }} ( {{ providedSymbol }} )</h2>
+     <div class="sentimentContent">
+          <app-single-sentiment *ngFor="let sentiment of defaultSentiments" [sentiment]="sentiment"></app-single-sentiment>
+     </div>
+     </div>
+
+     <button type="submit" (click)="onBackward()" id="backBtn">< Back to list of stocks</button>
 </div>
-
-

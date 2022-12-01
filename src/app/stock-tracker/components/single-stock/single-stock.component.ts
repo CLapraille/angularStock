@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ManagedStock } from 'src/app/models/managed-stock.model';
+import { TrackedStockService } from 'src/app/services/tracked-stock.service';
 
 @Component({
   selector: 'app-single-stock',
@@ -9,7 +10,8 @@ import { ManagedStock } from 'src/app/models/managed-stock.model';
 })
 export class SingleStockComponent implements OnInit {
 
-  constructor(private route: Router) { }
+  constructor(private route: Router,              
+              private trackedStockService: TrackedStockService) { }
 
   @Input() managedStock!: ManagedStock;
 
@@ -17,7 +19,8 @@ export class SingleStockComponent implements OnInit {
   }
 
   onUnsubscribeStock(stockAcronym: string){
-    console.log(`unsubscribe to ${stockAcronym}`);
+    this.trackedStockService.removeStock(stockAcronym);
+    location.reload();
   }
   
   onGotoSocialSentiment(event: Event){

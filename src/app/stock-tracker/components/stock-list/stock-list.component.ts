@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ManagedStock } from 'src/app/models/managed-stock.model';
 import { FinnhubQuoteService } from 'src/app/services/finnhub-stock.service';
+import { TrackedStockService } from 'src/app/services/tracked-stock.service';
 
 @Component({
   selector: 'app-stock-list',
@@ -9,22 +10,18 @@ import { FinnhubQuoteService } from 'src/app/services/finnhub-stock.service';
 })
 export class StockListComponent implements OnInit {
 
-  constructor(private fhQuoteService: FinnhubQuoteService) { }
+  constructor(private fhQuoteService: FinnhubQuoteService,
+              private trackedStockService: TrackedStockService) { }
 
-  managedStocks!: ManagedStock[];
+  managedStocks: ManagedStock[] = [];
 
   ngOnInit(): void {
-    this.managedStocks = [
-      { "description": "APPLE INC", "symbol": "AAPL", "stockQuote": { "c": 141.17, "d": -3.05, "dp": -2.1148, "h": 144.81, "l": 140.355, "o": 144.29, "pc": 144.22, "t": 1669755604 } },
-      { "description": "Google Co", "symbol": "GOOGL", "stockQuote": { "c": 141.17, "d": 3.05, "dp": 2.1148, "h": 144.81, "l": 140.355, "o": 144.29, "pc": 144.22, "t": 1669755604 } },
-      { "description": "APPLE INC", "symbol": "AAPL", "stockQuote": { "c": 141.17, "d": -3.05, "dp": -2.1148, "h": 144.81, "l": 140.355, "o": 144.29, "pc": 144.22, "t": 1669755604 } },
-      { "description": "APPLE INC", "symbol": "AAPL", "stockQuote": { "c": 141.17, "d": -3.05, "dp": -2.1148, "h": 144.81, "l": 140.355, "o": 144.29, "pc": 144.22, "t": 1669755604 } },
-      { "description": "APPLE INC", "symbol": "AAPL", "stockQuote": { "c": 141.17, "d": -3.05, "dp": -2.1148, "h": 144.81, "l": 140.355, "o": 144.29, "pc": 144.22, "t": 1669755604 } },
-      { "description": "APPLE INC", "symbol": "AAPL", "stockQuote": { "c": 141.17, "d": -3.05, "dp": -2.1148, "h": 144.81, "l": 140.355, "o": 144.29, "pc": 144.22, "t": 1669755604 } }
-    ];
+    this.refreshManagedStock();
   }
 
-  onTrackButtonClick(){
-    //this.fhQuoteService.getManagedStockForStock('AAPL').subscribe(r => this.managedStock = r);
+  refreshManagedStock(){
+    this.trackedStockService.getAllStock().forEach(element => {
+      this.fhQuoteService.getManagedStockForStock(element.symbol).subscribe(r => this.managedStocks.push(r));  
+    });    
   }
 }
