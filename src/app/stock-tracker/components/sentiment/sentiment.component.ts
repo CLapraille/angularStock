@@ -59,11 +59,4 @@ export class SentimentComponent implements OnInit {
   onBackward(){
     this.router.navigateByUrl('');
   }
-
-  // getStockElement(id: number) : StockSentimentInfo{
-  //   if(this.stockSentiments == null || this.stockSentiments.length < id)
-  //     return new StockSentimentInfo();
-
-  //   return this.stockSentiments[id];
-  // }
 }

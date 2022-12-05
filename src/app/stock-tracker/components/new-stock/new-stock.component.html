@@ -1,6 +1,6 @@
 <form [formGroup]="stockForm">
     <div class="stock-card">
-
+        <h1>Stock Tracker</h1>
         <h2>Enter the symbol of a stock to track (i.e. AAPL, TSLA, GOOGL)</h2>
    
         <div>
@@ -8,7 +8,7 @@
 
             <button type="submit" [disabled]="stockForm.invalid" id="trackBtn" (click)="onTrackButtonClick()" >Track Stock</button>
         </div>        
-        <button class="smallButton" (click)="onClearLocalCache()">Clear Local Storage</button>
+        <!-- <button class="smallButton" (click)="onClearLocalCache()">Clear Local Storage</button> -->
 
         <div class="alert" *ngIf="stockAcronym?.invalid && (stockAcronym?.dirty || stockAcronym?.touched)" >
 

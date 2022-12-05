@@ -42,8 +42,8 @@ export class NewStockComponent implements OnInit {
     ).subscribe();
   }
 
-  onClearLocalCache(){
-    this.trackedStockService.clearLocalStorage();
-    window.location.reload();
-  }
+  // onClearLocalCache(){
+  //   this.trackedStockService.clearLocalStorage();
+  //   window.location.reload();
+  // }
 }

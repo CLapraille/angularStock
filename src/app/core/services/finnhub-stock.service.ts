@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable, tap } from 'rxjs';
-import { observableToBeFn } from 'rxjs/internal/testing/TestScheduler';
+import { map, Observable } from 'rxjs';
 import { ManagedStock } from '../models/managed-stock.model';
 import { StockLookup } from '../models/stock-lookup.model';
 import { StockQuote } from '../models/stock-quote.model';
@@ -14,8 +13,8 @@ export class FinnhubQuoteService {
 
   constructor(private http: HttpClient) { }
 
-  finnhubUrl: string = 'https://finnhub.io/api/v1';
-  finnhubToken: string = '&token=bu4f8kn48v6uehqi3cqg';
+  private finnhubUrl: string = 'https://finnhub.io/api/v1';
+  private finnhubToken: string = '&token=bu4f8kn48v6uehqi3cqg';
 
 
   getStockDescription(stockAcronym: string) : Observable<string>{
@@ -50,7 +49,7 @@ export class FinnhubQuoteService {
 
   getSentimentLast3MonthsForStock(stockAcronym: string) : Observable<StockSentiment>{
     var today = new Date();
-
+    
     var previous3Month = new Date();
     previous3Month.setDate(today.getDate() - 91);
 
@@ -59,24 +58,9 @@ export class FinnhubQuoteService {
     
     var extraUrlPart: string = `&from=${today3Month}&to=${todayString}`;
     var tmpUrl: string = `${this.finnhubUrl}/stock/insider-sentiment?symbol=${stockAcronym}${extraUrlPart}${this.finnhubToken}`;
-
+    console.log(tmpUrl);
     return this.http.get<StockSentiment>(tmpUrl);
   }
-
-  // getSentimentForMonth(stockAcronym: string, dateRef: Date) : Observable<StockSentiment>{
-  //   var fromDate = new Date(dateRef.getFullYear(), dateRef.getMonth(), 1);
-  //   var toDate = new Date(dateRef.getFullYear(), dateRef.getMonth(), 28);
-    
-  //   var fromDateStr: string = this.getDateConvertedToString(fromDate);
-  //   var toDateStr: string = this.getDateConvertedToString(toDate);
-    
-  //   var extraUrlPart: string = `&from=${fromDateStr}&to=${toDateStr}`;
-  //   var tmpUrl: string = `${this.finnhubUrl}/stock/insider-sentiment?symbol=${stockAcronym}${extraUrlPart}${this.finnhubToken}`;
-
-  //   console.log(tmpUrl);
-
-  //   return this.http.get<StockSentiment>(tmpUrl);
-  // }
 
   getDateConvertedToString(givenDate: Date) : string{
     const yyyy = givenDate.getFullYear();
