@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ManagedStock } from 'src/app/models/managed-stock.model';
-import { TrackedStockService } from 'src/app/services/tracked-stock.service';
+import { ManagedStock } from 'src/app/core/models/managed-stock.model';
+import { TrackedStockService } from 'src/app/core/services/tracked-stock.service';
 
 @Component({
   selector: 'app-single-stock',

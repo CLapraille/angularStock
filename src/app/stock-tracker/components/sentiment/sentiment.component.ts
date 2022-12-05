@@ -2,10 +2,10 @@ import { MapType } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map } from 'rxjs';
-import { ManagedStock } from 'src/app/models/managed-stock.model';
-import { StockSentiment, StockSentimentInfo } from 'src/app/models/stock-sentiment.model';
-import { FinnhubQuoteService } from 'src/app/services/finnhub-stock.service';
-import { TrackedStockService } from 'src/app/services/tracked-stock.service';
+import { ManagedStock } from 'src/app/core/models/managed-stock.model';
+import { StockSentiment, StockSentimentInfo } from 'src/app/core/models/stock-sentiment.model';
+import { FinnhubQuoteService } from 'src/app/core/services/finnhub-stock.service';
+import { TrackedStockService } from 'src/app/core/services/tracked-stock.service';
 
 @Component({
   selector: 'app-sentiment',

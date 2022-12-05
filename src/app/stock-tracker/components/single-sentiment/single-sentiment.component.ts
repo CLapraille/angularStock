@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { StockSentimentInfo } from 'src/app/models/stock-sentiment.model';
+import { StockSentimentInfo } from 'src/app/core/models/stock-sentiment.model';
 
 @Component({
   selector: 'app-single-sentiment',

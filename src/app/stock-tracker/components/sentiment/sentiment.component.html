@@ -2,6 +2,7 @@
  <div class="card-content">
      <div class="single-stock-card">              
      <h2 class="card-title">{{ stockName }} ( {{ providedSymbol }} )</h2>
+     
      <div class="sentimentContent">
           <app-single-sentiment *ngFor="let sentiment of defaultSentiments" [sentiment]="sentiment"></app-single-sentiment>
      </div>

@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { map, tap } from 'rxjs';
-import { TrackedStock } from 'src/app/models/tracked-stock.model';
-import { FinnhubQuoteService } from 'src/app/services/finnhub-stock.service';
-import { LocalService } from 'src/app/services/local.service';
-import { TrackedStockService } from 'src/app/services/tracked-stock.service';
+import { TrackedStock } from 'src/app/core/models/tracked-stock.model';
+import { FinnhubQuoteService } from 'src/app/core/services/finnhub-stock.service';
+import { TrackedStockService } from 'src/app/core/services/tracked-stock.service';
 
 @Component({
   selector: 'app-new-stock',

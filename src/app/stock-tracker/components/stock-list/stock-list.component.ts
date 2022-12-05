@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ManagedStock } from 'src/app/models/managed-stock.model';
-import { FinnhubQuoteService } from 'src/app/services/finnhub-stock.service';
-import { TrackedStockService } from 'src/app/services/tracked-stock.service';
+import { ManagedStock } from 'src/app/core/models/managed-stock.model';
+import { FinnhubQuoteService } from 'src/app/core/services/finnhub-stock.service';
+import { TrackedStockService } from 'src/app/core/services/tracked-stock.service';
 
 @Component({
   selector: 'app-stock-list',

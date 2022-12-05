@@ -15,7 +15,7 @@
     <div *ngIf="managedStock.stockQuote">
         <table>
             <tr>
-                <td><b>Change today :</b> {{ managedStock.stockQuote.dp/100 | percent:'.2' }}</td>
+                <td><b>Change today :</b> {{ managedStock.stockQuote.dp > 0 ? '+' : '' }}{{ managedStock.stockQuote.dp/100 | percent:'.2' }}</td>
                 <td><b>Current Price :</b> {{ managedStock.stockQuote.c | currency }}</td>                    
             </tr>
         
