@@ -7,6 +7,7 @@ import { CoreModule } from './core/core.module';
 import { StockTrackerModule } from './stock-tracker/stock-tracker.module';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
